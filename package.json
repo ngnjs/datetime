@@ -1,0 +1,83 @@
+{
+  "name": "@ngnjs/datetime",
+  "version": "1.0.0-alpha.1",
+  "description": "A date/time library for NGN",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/**/*.js | tap-spec && standard | snazzy --verbose",
+    "test-a": "tape ./test/sanity_test.js| tap-spec && standard | snazzy --verbose",
+    "test-b": "tape ./test/second_test.js| tap-spec && standard | snazzy --verbose",
+    "test-c": "tape ./test/third_test.js| tap-spec && standard | snazzy --verbose",
+    "test:json": "tape ./index.js| tap-spec && standard | snazzy --verbose",
+    "test:node": "rollup -c ./rollup.testnode.config.js && tap -R spec ./test/*-*/*-*.js && standard --verbose | snazzy",
+    "test:node:date": "rollup -c ./rollup.testnode.config.js && tap -R spec ./test/*-date*/*-*.js && standard --verbose | snazzy",
+    "test:node:date:duration": "rollup -c ./rollup.testnode.config.js && tap -R spec ./test/*-date*/*-duration.js && standard --verbose | snazzy",
+    "test:node:date:interval": "rollup -c ./rollup.testnode.config.js && tap -R spec ./test/*-date*/*-interval.js && standard --verbose | snazzy",
+    "test:node:date:iterator": "rollup -c ./rollup.testnode.config.js && tap -R spec ./test/*-date*/*-iterator.js && standard --verbose | snazzy"
+  },
+  "author": "Author.io",
+  "license": "BSD 3-Clause",
+  "devDependencies": {
+    "rollup": "^0.59.4",
+    "rollup-plugin-buble": "^0.19.2",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-strip-code": "^0.2.6",
+    "rollup-plugin-terser": "^1.0.1",
+    "rollup-plugin-uglify": "^4.0.0",
+    "snazzy": "^7.1.1",
+    "source-map-support": "^0.5.9",
+    "standard": "^12.0.1",
+    "tap": "^12.0.1"
+  },
+  "standard": {
+    "ignore": [
+      "_*",
+      "_**/*",
+      "test/lib/**/*",
+      "node_modules",
+      "dist/**/*",
+      "gulpfile.js",
+      "src/common/data/WIP/**/*",
+      "src/common/data/current/**/*"
+    ],
+    "globals": [
+      "NGN",
+      "NGNX",
+      "window",
+      "global",
+      "MutationObserver",
+      "EventEmitter",
+      "NgnCustomException",
+      "MissingNgnDependencyError",
+      "InvalidConfigurationError",
+      "ReservedWordError",
+      "DOMParser",
+      "XMLHttpRequest",
+      "FormData",
+      "btoa",
+      "localStorage",
+      "Network",
+      "Request",
+      "Response",
+      "Headers",
+      "fetch",
+      "Element",
+      "HTMLElement",
+      "NodeFilter",
+      "hostname",
+      "networkInterfaces",
+      "normalizeUrl",
+      "HttpMethods",
+      "request"
+    ]
+  },
+  "nyc": {
+    "exclude": [
+      "test/common"
+    ],
+    "include": [
+      "test/lib"
+    ]
+  },
+  "dependencies": {}
+}
